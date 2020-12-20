@@ -7,12 +7,152 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/city"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/city"
+        android:textSize="@dimen/city_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/gl_top"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/current_temperature"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/current_temperature"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/current_temperature"
+        android:textSize="@dimen/current_temperature_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/gl_top"
+        app:layout_constraintLeft_toRightOf="@+id/city"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <TextView
+        android:id="@+id/hourly_forecast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hourly_forecast"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gl_top" />
+
+    <ImageView
+        android:id="@+id/icon_clock"
+        android:src="@drawable/clock"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_forecast"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_clock" />
+
+    <ImageView
+        android:id="@+id/icon_temperature"
+        android:src="@drawable/temperature"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_clock"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_temperature" />
+
+    <ImageView
+        android:id="@+id/icon_precipitation_per_hour"
+        android:src="@drawable/precipitation"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_temperature"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_night" />
+
+    <ImageView
+        android:id="@+id/icon_wing"
+        android:src="@drawable/wind"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_precipitation_per_hour"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_precipitation_per_hour" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/icon_wing" />
+
+    <TextView
+        android:id="@+id/weekly_forecast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/weekly_forecast"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gl_bottom" />
+
+    <ImageView
+        android:id="@+id/icon_calendar"
+        android:src="@drawable/calendar"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/weekly_forecast"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/calendar_image" />
+
+    <ImageView
+        android:id="@+id/icon_day"
+        android:src="@drawable/day"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_calendar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/day_image" />
+
+    <ImageView
+        android:id="@+id/icon_night"
+        android:src="@drawable/night"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_day"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_night" />
+
+    <ImageView
+        android:id="@+id/icon_precipitation"
+        android:src="@drawable/precipitation"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        app:layout_constraintTop_toBottomOf="@+id/icon_night"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/image_night" />
+
+    <Button
+        android:id="@+id/add_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/bt_add_city_margin_end"
+        android:layout_marginBottom="@dimen/bt_add_city_margin_bottom"
+        android:text="@string/add_city"
+        android:textSize="@dimen/symbol_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

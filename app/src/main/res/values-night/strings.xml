@@ -1,13 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Weather App</string>
     <string name="city">City</string>
-    <string name="current_temperature">T *C</string>
+    <string name="current_temperature">T *</string>
     <string name="hourly_forecast">Hourly forecast</string>
     <string name="weekly_forecast">Weekly forecast</string>
     <string name="add_city">+</string>
     <string name="image_clock">Clock image</string>
-    <string name="calendar_image">Calendar image</string>
-    <string name="day_image">Day image</string>
     <string name="image_night">Night image</string>
     <string name="image_temperature">Temperature image</string>
     <string name="image_precipitation_per_hour">Precipitation image</string>

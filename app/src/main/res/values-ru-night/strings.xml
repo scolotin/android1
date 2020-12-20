@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="city">Город</string>
+    <string name="current_temperature">T *C</string>
+    <string name="hourly_forecast">Прогноз по часам</string>
+    <string name="weekly_forecast">Прогноз на неделю</string>
+    <string name="add_city">+</string>
+    <string name="image_clock">Текущее время</string>
+    <string name="calendar_image">Текущая дата</string>
+    <string name="day_image">Погода днём</string>
+    <string name="image_night">Погода ночью</string>
+    <string name="image_temperature">Температура</string>
+    <string name="image_precipitation_per_hour">Осадки</string>
+</resources>
