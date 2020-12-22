@@ -8,4 +8,6 @@
     <dimen name="symbol_font_size">22sp</dimen>
     <dimen name="icon_size">22dp</dimen>
     <dimen name="icons_margin">10dp</dimen>
+    <dimen name="label_margin_top">10dp</dimen>
+    <dimen name="screen_margin">10dp</dimen>
 </resources>
