@@ -11,4 +11,14 @@
     <string name="image_night">Погода ночью</string>
     <string name="image_temperature">Температура</string>
     <string name="image_precipitation_per_hour">Осадки</string>
+    <string name="search">Поиск</string>
+    <string name="btn_apply">Добавить</string>
+    <string name="add_wind_speed_info">Добавить информацию о скорости ветра</string>
+    <string name="add_humidity_info">Добавить информацию о влажности воздуха</string>
+    <string name="popular_cities">Популярные города</string>
+    <string name="city_0">Рязань</string>
+    <string name="city_1">Москва</string>
+    <string name="city_2">Санкт Петербург</string>
+    <string name="city_3">Калининград</string>
+    <string name="city_4">Мурманск</string>
 </resources>

@@ -5,7 +5,11 @@
     <dimen name="city_font_size">32sp</dimen>
     <dimen name="bt_add_city_margin_end">20dp</dimen>
     <dimen name="bt_add_city_margin_bottom">20dp</dimen>
-    <dimen name="symbol_font_size">21sp</dimen>
+    <dimen name="symbol_font_size">15sp</dimen>
     <dimen name="icon_size">22dp</dimen>
     <dimen name="icons_margin">10dp</dimen>
+    <dimen name="hint_font_size">23sp</dimen>
+    <dimen name="checkbox_margin">10dp</dimen>
+    <dimen name="cities_list_margin">10dp</dimen>
+    <dimen name="popular_cities_font_size">18sp</dimen>
 </resources>

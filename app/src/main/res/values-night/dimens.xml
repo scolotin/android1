@@ -10,4 +10,8 @@
     <dimen name="icons_margin">10dp</dimen>
     <dimen name="label_margin_top">10dp</dimen>
     <dimen name="screen_margin">10dp</dimen>
+    <dimen name="hint_font_size">23sp</dimen>
+    <dimen name="checkbox_margin">10dp</dimen>
+    <dimen name="cities_list_margin">10dp</dimen>
+    <dimen name="popular_cities_font_size">18sp</dimen>
 </resources>

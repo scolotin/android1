@@ -9,4 +9,14 @@
     <string name="image_night">Night image</string>
     <string name="image_temperature">Temperature image</string>
     <string name="image_precipitation_per_hour">Precipitation image</string>
+    <string name="search">Search</string>
+    <string name="btn_apply">Add</string>
+    <string name="add_wind_speed_info">Add wind speed info</string>
+    <string name="add_humidity_info">Add humidity info</string>
+    <string name="popular_cities">Popular cities</string>
+    <string name="city_0">Ryazan</string>
+    <string name="city_1">Moscow</string>
+    <string name="city_2">Saint Petersburg</string>
+    <string name="city_3">Kaliningrad</string>
+    <string name="city_4">Murmansk</string>
 </resources>
