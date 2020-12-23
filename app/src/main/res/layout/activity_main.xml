@@ -8,6 +8,15 @@
     android:layout_margin="@dimen/screen_margin"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/btn_settings"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/icons_margin"
+        android:src="@drawable/settings"
+        android:layout_gravity="top|end"
+        tools:ignore="ContentDescription" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -155,7 +164,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/add_city"
+        android:id="@+id/btn_add_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/bt_add_city_margin_end"

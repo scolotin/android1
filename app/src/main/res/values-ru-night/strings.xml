@@ -21,4 +21,8 @@
     <string name="city_2">Санкт Петербург</string>
     <string name="city_3">Калининград</string>
     <string name="city_4">Мурманск</string>
+    <string name="enable_dark_theme">Включить темную тему</string>
+    <string name="select_font_size">Выбрать размер шрифта</string>
+    <string name="update_frequency">Частота обновления прогноза</string>
+    <string name="time_format">Формат времени</string>
 </resources>
