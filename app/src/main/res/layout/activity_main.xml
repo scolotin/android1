@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -151,6 +151,7 @@
                 android:contentDescription="@string/image_night" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
     <Button
@@ -161,8 +162,6 @@
         android:layout_marginBottom="@dimen/bt_add_city_margin_bottom"
         android:text="@string/add_city"
         android:textSize="@dimen/symbol_font_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_gravity="bottom|end"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-
+</FrameLayout>
