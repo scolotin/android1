@@ -25,4 +25,6 @@
     <string name="select_font_size">Выбрать размер шрифта</string>
     <string name="update_frequency">Частота обновления прогноза</string>
     <string name="time_format">Формат времени</string>
+    <string name="settings">Настройки</string>
+    <string name="add_city_settings">Настройки</string>
 </resources>

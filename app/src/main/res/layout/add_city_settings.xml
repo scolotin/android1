@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layout_margin="@dimen/screen_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/wind_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin"
+            android:text="@string/add_wind_speed_info" />
+
+        <CheckBox
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_humidity_info"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin" />
+
+    </LinearLayout>
+</ScrollView>
