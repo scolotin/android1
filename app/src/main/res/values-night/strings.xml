@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="city">City</string>
-    <string name="current_temperature">T *</string>
+    <string name="current_temperature">0 *C</string>
     <string name="hourly_forecast">Hourly forecast</string>
     <string name="weekly_forecast">Weekly forecast</string>
     <string name="add_city">+</string>

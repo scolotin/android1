@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Погода</string>
     <string name="city">Город</string>
-    <string name="current_temperature">T *C</string>
+    <string name="current_temperature">0 *C</string>
     <string name="hourly_forecast">Прогноз по часам</string>
     <string name="weekly_forecast">Прогноз на неделю</string>
     <string name="add_city">+</string>
