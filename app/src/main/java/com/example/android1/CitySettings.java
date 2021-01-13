@@ -1,6 +1,8 @@
 package com.example.android1;
 
-public class CitySettings {
+import java.io.Serializable;
+
+public class CitySettings implements Serializable {
     private static boolean isCheckedHumidity, isCheckedWindSpeed;
 
     private static CitySettings instance = null;

@@ -27,4 +27,5 @@
     <string name="time_format">Формат времени</string>
     <string name="settings">Настройки</string>
     <string name="add_city_settings">Настройки</string>
+    <string name="about">Инфо</string>
 </resources>
