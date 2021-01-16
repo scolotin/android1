@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView city;
     private TextView currentTemperature;
 
-    private static final CitySettings citySettings = CitySettings.getInstance();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnAddCity = findViewById(R.id.btn_add_city);
         btnAddCity.setOnClickListener(v -> {
             Intent addCityActivityIntent = new Intent(MainActivity.this, AddCityActivity.class);
-            addCityActivityIntent.putExtra("citySettings", citySettings);
             startActivityForResult(addCityActivityIntent, REQUEST_CODE);
         });
 
@@ -49,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (resultCode == RESULT_OK) {
-            city = findViewById(R.id.city);
-            String cityName = data.getStringExtra("cityName");
-            if (!cityName.isEmpty()) {
-                city.setText(cityName);
+            if (data != null) {
+                city = findViewById(R.id.city);
+                String cityName = data.getStringExtra("cityName");
+                if (cityName != null && !cityName.isEmpty()) {
+                    city.setText(cityName);
+                }
             }
         }
     }
