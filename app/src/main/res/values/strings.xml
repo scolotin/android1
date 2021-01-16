@@ -5,12 +5,6 @@
     <string name="hourly_forecast">Hourly forecast</string>
     <string name="weekly_forecast">Weekly forecast</string>
     <string name="add_city">+</string>
-    <string name="image_clock">Clock image</string>
-    <string name="calendar_image">Calendar image</string>
-    <string name="day_image">Day image</string>
-    <string name="image_night">Night image</string>
-    <string name="image_temperature">Temperature image</string>
-    <string name="image_precipitation_per_hour">Precipitation image</string>
     <string name="search">Search</string>
     <string name="btn_apply">Apply</string>
     <string name="add_wind_speed_info">Add wind speed info</string>

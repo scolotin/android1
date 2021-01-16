@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +54,36 @@ public class MainActivity extends AppCompatActivity {
                 if (cityName != null && !cityName.isEmpty()) {
                     city.setText(cityName);
                 }
+
+                int visibility = getVisibilityFromIntent(data, "isWindSpeedEnabled");
+                setWindSpeedVisibility(visibility);
+
+                visibility = getVisibilityFromIntent(data, "isHumidityEnabled");
+                setHumidityVisibility(visibility);
             }
         }
+    }
+
+    private int getVisibilityFromIntent(Intent data, String name) {
+        boolean isVisibility = data.getBooleanExtra(name, false);
+
+        return isVisibility ? View.VISIBLE : View.GONE;
+    }
+
+    private void setWindSpeedVisibility(int visibility) {
+        ImageView windSpeed = findViewById(R.id.icon_speed_wind);
+        windSpeed.setVisibility(visibility);
+
+        ImageView windSpeedPerHour = findViewById(R.id.icon_speed_wind_per_hour);
+        windSpeedPerHour.setVisibility(visibility);
+    }
+
+    private void setHumidityVisibility(int visibility) {
+        ImageView humidity = findViewById(R.id.icon_humidity);
+        humidity.setVisibility(visibility);
+
+        ImageView humidityPerHour = findViewById(R.id.icon_humidity_per_hour);
+        humidityPerHour.setVisibility(visibility);
     }
 
     @Override
