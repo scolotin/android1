@@ -36,30 +36,45 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
                 android:text="@string/city_0"
-                android:textSize="@dimen/popular_cities_font_size"/>
+                android:textSize="@dimen/popular_cities_font_size" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
                 android:text="@string/city_1"
                 android:textSize="@dimen/popular_cities_font_size"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
                 android:text="@string/city_2"
                 android:textSize="@dimen/popular_cities_font_size"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
                 android:text="@string/city_3"
                 android:textSize="@dimen/popular_cities_font_size"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
                 android:text="@string/city_4"
                 android:textSize="@dimen/popular_cities_font_size"/>
 

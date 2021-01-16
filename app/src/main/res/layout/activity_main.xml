@@ -20,7 +20,7 @@
 
             <TextView
                 android:id="@+id/city"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:gravity="center"
                 android:text="@string/city"
@@ -32,7 +32,7 @@
 
             <TextView
                 android:id="@+id/current_temperature"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:gravity="center"
                 android:text="@string/current_temperature"

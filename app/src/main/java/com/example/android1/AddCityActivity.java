@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 public class AddCityActivity extends AppCompatActivity {
     private SearchView searchView;
@@ -29,11 +31,12 @@ public class AddCityActivity extends AppCompatActivity {
         Button btnApply = findViewById(R.id.btn_apply);
         btnApply.setOnClickListener(v -> {
             searchView = findViewById(R.id.search);
-            Intent cityNameIntent = new Intent();
-            cityNameIntent.putExtra("cityName", searchView.getQuery().toString());
-            cityNameIntent.putExtra("isWindSpeedEnabled", isWindSpeedEnabled);
-            cityNameIntent.putExtra("isHumidityEnabled", isHumidityEnabled);
-            setResult(RESULT_OK, cityNameIntent);
+            if (!searchView.getQuery().toString().isEmpty()) {
+                cityNameRequest = searchView.getQuery().toString();
+            }
+
+            Intent cityParametersIntent = createCityParametersIntent();
+            setResult(RESULT_OK, cityParametersIntent);
             finish();
         });
     }
@@ -97,5 +100,22 @@ public class AddCityActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         cityNameRequest = savedInstanceState.getString("cityNameRequest");
+    }
+
+    public void onClick(View view) {
+        TextView selectCity = (TextView) view;
+        cityNameRequest = selectCity.getText().toString();
+
+        Intent cityParametersIntent = createCityParametersIntent();
+        setResult(RESULT_OK, cityParametersIntent);
+        finish();
+    }
+
+    private Intent createCityParametersIntent() {
+        Intent cityNameIntent = new Intent();
+        cityNameIntent.putExtra("cityName", cityNameRequest);
+        cityNameIntent.putExtra("isWindSpeedEnabled", isWindSpeedEnabled);
+        cityNameIntent.putExtra("isHumidityEnabled", isHumidityEnabled);
+        return cityNameIntent;
     }
 }
