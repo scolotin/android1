@@ -112,10 +112,10 @@ public class AddCityActivity extends AppCompatActivity {
     }
 
     private Intent createCityParametersIntent() {
-        Intent cityNameIntent = new Intent();
-        cityNameIntent.putExtra("cityName", cityNameRequest);
-        cityNameIntent.putExtra("isWindSpeedEnabled", isWindSpeedEnabled);
-        cityNameIntent.putExtra("isHumidityEnabled", isHumidityEnabled);
-        return cityNameIntent;
+        Intent cityParametersIntent = new Intent();
+        cityParametersIntent.putExtra("cityName", cityNameRequest);
+        cityParametersIntent.putExtra("isWindSpeedEnabled", isWindSpeedEnabled);
+        cityParametersIntent.putExtra("isHumidityEnabled", isHumidityEnabled);
+        return cityParametersIntent;
     }
 }

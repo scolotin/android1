@@ -60,52 +60,20 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gl_top"/>
 
-            <ImageView
-                android:id="@+id/icon_clock"
-                android:src="@drawable/clock"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
+            <HorizontalScrollView
+                android:id="@+id/hourly_forecast_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/hourly_forecast"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent">
 
-            <ImageView
-                android:id="@+id/icon_temperature_per_hour"
-                android:src="@drawable/temperature"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_clock"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/hourly_forecast_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-            <ImageView
-                android:id="@+id/icon_precipitation_per_hour"
-                android:src="@drawable/precipitation"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_temperature_per_hour"
-                app:layout_constraintLeft_toLeftOf="parent"/>
-
-            <ImageView
-                android:id="@+id/icon_speed_wind_per_hour"
-                android:src="@drawable/wind"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_precipitation_per_hour"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:visibility="gone"/>
-
-            <ImageView
-                android:id="@+id/icon_humidity_per_hour"
-                android:src="@drawable/humidity"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_speed_wind_per_hour"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:visibility="gone"/>
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/weekly_forecast"
@@ -116,72 +84,22 @@
                 android:textSize="@dimen/label_font_size"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/icon_humidity_per_hour"/>
+                app:layout_constraintTop_toBottomOf="@+id/hourly_forecast_view"/>
 
-            <ImageView
-                android:id="@+id/icon_calendar"
-                android:src="@drawable/calendar"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
+            <HorizontalScrollView
+                android:id="@+id/weekly_forecast_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/weekly_forecast"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent">
 
-            <ImageView
-                android:id="@+id/icon_temperature"
-                android:src="@drawable/temperature"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_calendar"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/weekly_forecast_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-            <ImageView
-                android:id="@+id/icon_day"
-                android:src="@drawable/day"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_temperature"
-                app:layout_constraintLeft_toLeftOf="parent"/>
-
-            <ImageView
-                android:id="@+id/icon_night"
-                android:src="@drawable/night"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_day"
-                app:layout_constraintLeft_toLeftOf="parent"/>
-
-            <ImageView
-                android:id="@+id/icon_precipitation"
-                android:src="@drawable/precipitation"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_night"
-                app:layout_constraintLeft_toLeftOf="parent"/>
-
-            <ImageView
-                android:id="@+id/icon_speed_wind"
-                android:src="@drawable/wind"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_precipitation"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:visibility="gone"/>
-
-            <ImageView
-                android:id="@+id/icon_humidity"
-                android:src="@drawable/humidity"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_margin="@dimen/icons_margin"
-                app:layout_constraintTop_toBottomOf="@+id/icon_speed_wind"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:visibility="gone"/>
+            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

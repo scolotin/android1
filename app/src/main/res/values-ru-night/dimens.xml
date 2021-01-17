@@ -15,4 +15,7 @@
     <dimen name="cities_list_margin">10dp</dimen>
     <dimen name="popular_cities_font_size">18sp</dimen>
     <dimen name="settings_font_size">17sp</dimen>
+    <dimen name="column_margin">2dp</dimen>
+    <dimen name="column_size">40dp</dimen>
+    <dimen name="column_first_margin">6dp</dimen>
 </resources>

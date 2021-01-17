@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    tools:ignore="ContentDescription">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/item_0"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_first_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_1"/>
+
+    <TextView
+        android:id="@+id/item_1"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_2"/>
+
+    <TextView
+        android:id="@+id/item_2"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_3"/>
+
+    <TextView
+        android:id="@+id/item_3"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_4"/>
+
+    <TextView
+        android:id="@+id/item_4"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_5"/>
+
+    <TextView
+        android:id="@+id/item_5"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_6"/>
+
+    <TextView
+        android:id="@+id/item_6"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_7"/>
+
+    <TextView
+        android:id="@+id/item_7"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_8"/>
+
+    <TextView
+        android:id="@+id/item_8"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_9"/>
+
+    <TextView
+        android:id="@+id/item_9"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_10"/>
+
+    <TextView
+        android:id="@+id/item_10"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_11"/>
+
+    <TextView
+        android:id="@+id/item_11"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_12"/>
+
+    <TextView
+        android:id="@+id/item_12"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_13"/>
+
+    <TextView
+        android:id="@+id/item_13"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_14"/>
+
+    <TextView
+        android:id="@+id/item_14"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_15"/>
+
+    <TextView
+        android:id="@+id/item_15"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_14"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_16"/>
+
+    <TextView
+        android:id="@+id/item_16"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_17"/>
+
+    <TextView
+        android:id="@+id/item_17"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_18"/>
+
+    <TextView
+        android:id="@+id/item_18"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_17"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_19"/>
+
+    <TextView
+        android:id="@+id/item_19"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_18"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_20"/>
+
+    <TextView
+        android:id="@+id/item_20"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_19"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_21"/>
+
+    <TextView
+        android:id="@+id/item_21"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_22"/>
+
+    <TextView
+        android:id="@+id/item_22"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_21"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_23"/>
+
+    <TextView
+        android:id="@+id/item_23"
+        android:layout_width="@dimen/column_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/column_margin"
+        android:layout_marginEnd="@dimen/column_margin"
+        app:layout_constraintLeft_toRightOf="@+id/item_22"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
