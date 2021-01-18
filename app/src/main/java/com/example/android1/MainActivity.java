@@ -3,9 +3,11 @@ package com.example.android1;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentTemperature;
 
     private boolean isFirstInfo = true;
+
     private final ArrayList<Forecast> hourlyForecasts = new ArrayList<>();
     private final ArrayList<Forecast> weeklyForecasts = new ArrayList<>();
 
@@ -42,29 +45,62 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        city = findViewById(R.id.city);
-
-
         Button btnAddCity = findViewById(R.id.btn_add_city);
-        btnAddCity.setOnClickListener(v -> {
-            Intent addCityActivityIntent = new Intent(MainActivity.this, AddCityActivity.class);
-            startActivityForResult(addCityActivityIntent, REQUEST_CODE);
-        });
-
-        Toast.makeText(getApplicationContext(), "onCreate()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onCreate()");
+        if (btnAddCity != null) {
+            btnAddCity.setOnClickListener(v -> {
+                Intent addCityActivityIntent = new Intent(MainActivity.this, AddCityActivity.class);
+                startActivityForResult(addCityActivityIntent, REQUEST_CODE);
+            });
+        }
     }
 
-    private void createHourlyForecast() {
-        hourlyForecasts.add(new Forecast(R.drawable.clock, getHours()));
-        hourlyForecasts.add(new Forecast(R.drawable.temperature, getHourlyTemperature()));
-        hourlyForecasts.add(new Forecast(R.drawable.precipitation, getHourlyPrecipitation()));
-    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
 
-    private void createWeeklyForecast() {
-        weeklyForecasts.add(new Forecast(R.drawable.calendar, getDays(1)));
-        weeklyForecasts.add(new Forecast(R.drawable.temperature, getWeeklyTemperature()));
-        weeklyForecasts.add(new Forecast(R.drawable.precipitation, getWeeklyPrecipitation()));
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                city = findViewById(R.id.city);
+                String cityName = data.getStringExtra("cityName");
+                if (cityName != null && !cityName.isEmpty()) {
+                    city.setText(cityName);
+                    currentTemperature = findViewById(R.id.current_temperature);
+                    currentTemperature.setText("-13 *C");
+                }
+
+                if (isFirstInfo) {
+                    createHourlyForecast();
+                    createWeeklyForecast();
+
+                    RecyclerView hourlyForecast = findViewById(R.id.hourly_forecast_list);
+                    hourlyForecastAdapter = new ForecastAdapter(this, hourlyForecasts, R.layout.hourly_forecast_list_item, Forecast.HOURLY_FORECAST);
+                    hourlyForecast.setAdapter(hourlyForecastAdapter);
+
+                    RecyclerView weeklyForecast = findViewById(R.id.weekly_forecast_list);
+                    weeklyForecastAdapter = new ForecastAdapter(this, weeklyForecasts, R.layout.weekly_forecast_list_item, Forecast.WEEKLY_FORECAST);
+                    weeklyForecast.setAdapter(weeklyForecastAdapter);
+
+                    isFirstInfo = false;
+                }
+
+                if (isWindSpeedEnabled != data.getBooleanExtra("isWindSpeedEnabled", false)) {
+                    isWindSpeedEnabled = data.getBooleanExtra("isWindSpeedEnabled", false);
+                    setWindSpeedVisibility(isWindSpeedEnabled);
+                    hourlyForecastAdapter.notifyDataSetChanged();
+                    weeklyForecastAdapter.notifyDataSetChanged();
+                }
+
+                if (isHumidityEnabled != data.getBooleanExtra("isHumidityEnabled", false)) {
+                    isHumidityEnabled = data.getBooleanExtra("isHumidityEnabled", false);
+                    setHumidityVisibility(isHumidityEnabled);
+                    hourlyForecastAdapter.notifyDataSetChanged();
+                    weeklyForecastAdapter.notifyDataSetChanged();
+                }
+            }
+        }
     }
 
     private String[] getHours() {
@@ -147,53 +183,16 @@ public class MainActivity extends AppCompatActivity {
         return weeklyHumidity;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode != REQUEST_CODE) {
-            super.onActivityResult(requestCode, resultCode, data);
-            return;
-        }
+    private void createHourlyForecast() {
+        hourlyForecasts.add(new Forecast(R.drawable.clock, getHours()));
+        hourlyForecasts.add(new Forecast(R.drawable.temperature, getHourlyTemperature()));
+        hourlyForecasts.add(new Forecast(R.drawable.precipitation, getHourlyPrecipitation()));
+    }
 
-        if (resultCode == RESULT_OK) {
-            if (data != null) {
-                city = findViewById(R.id.city);
-                String cityName = data.getStringExtra("cityName");
-                if (cityName != null && !cityName.isEmpty()) {
-                    city.setText(cityName);
-                    currentTemperature = findViewById(R.id.current_temperature);
-                    currentTemperature.setText("-13 *C");
-                }
-
-                if (isFirstInfo) {
-                    createHourlyForecast();
-                    createWeeklyForecast();
-
-                    RecyclerView hourlyForecast = findViewById(R.id.hourly_forecast_list);
-                    hourlyForecastAdapter = new ForecastAdapter(this, hourlyForecasts, R.layout.hourly_forecast_list_item, Forecast.HOURLY_FORECAST);
-                    hourlyForecast.setAdapter(hourlyForecastAdapter);
-
-                    RecyclerView weeklyForecast = findViewById(R.id.weekly_forecast_list);
-                    weeklyForecastAdapter = new ForecastAdapter(this, weeklyForecasts, R.layout.weekly_forecast_list_item, Forecast.WEEKLY_FORECAST);
-                    weeklyForecast.setAdapter(weeklyForecastAdapter);
-
-                    isFirstInfo = false;
-                }
-
-                if (isWindSpeedEnabled != data.getBooleanExtra("isWindSpeedEnabled", false)) {
-                    isWindSpeedEnabled = data.getBooleanExtra("isWindSpeedEnabled", false);
-                    setWindSpeedVisibility(isWindSpeedEnabled);
-                    hourlyForecastAdapter.notifyDataSetChanged();
-                    weeklyForecastAdapter.notifyDataSetChanged();
-                }
-
-                if (isHumidityEnabled != data.getBooleanExtra("isHumidityEnabled", false)) {
-                    isHumidityEnabled = data.getBooleanExtra("isHumidityEnabled", false);
-                    setHumidityVisibility(isHumidityEnabled);
-                    hourlyForecastAdapter.notifyDataSetChanged();
-                    weeklyForecastAdapter.notifyDataSetChanged();
-                }
-            }
-        }
+    private void createWeeklyForecast() {
+        weeklyForecasts.add(new Forecast(R.drawable.calendar, getDays(1)));
+        weeklyForecasts.add(new Forecast(R.drawable.temperature, getWeeklyTemperature()));
+        weeklyForecasts.add(new Forecast(R.drawable.precipitation, getWeeklyPrecipitation()));
     }
 
     private void setWindSpeedVisibility(boolean visibility) {
@@ -229,14 +228,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        Toast.makeText(getApplicationContext(), "onStart()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onStart()");
-    }
-
-    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -266,46 +257,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
         Log.i(LOG_TAG, "onRestoreInstanceState()");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Toast.makeText(getApplicationContext(), "onResume()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onResume()");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Toast.makeText(getApplicationContext(), "onPause()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onPause()");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        Toast.makeText(getApplicationContext(), "onStop()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onStop()");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        Toast.makeText(getApplicationContext(), "onRestart()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onRestart()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        Toast.makeText(getApplicationContext(), "onDestroy()", Toast.LENGTH_SHORT).show();
-        Log.i(LOG_TAG, "onDestroy()");
     }
 
     @Override

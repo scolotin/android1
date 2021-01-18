@@ -1,109 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/screen_margin"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <fragment
+        android:id="@+id/detailed_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        tools:ignore="ContentDescription">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/city"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:text="@string/city"
-                android:textSize="@dimen/city_font_size"
-                app:layout_constraintBottom_toTopOf="@+id/gl_top"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/current_temperature"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id="@+id/current_temperature"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:text="@string/current_temperature"
-                android:textSize="@dimen/current_temperature_font_size"
-                app:layout_constraintBottom_toTopOf="@+id/gl_top"
-                app:layout_constraintLeft_toRightOf="@+id/city"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_top"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25"/>
-
-            <TextView
-                android:id="@+id/hourly_forecast"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/label_margin_top"
-                android:text="@string/hourly_forecast"
-                android:textSize="@dimen/label_font_size"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/gl_top"/>
-
-            <HorizontalScrollView
-                android:id="@+id/hourly_forecast_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/hourly_forecast"
-                app:layout_constraintLeft_toLeftOf="parent">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/hourly_forecast_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/weekly_forecast"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/label_margin_top"
-                android:text="@string/weekly_forecast"
-                android:textSize="@dimen/label_font_size"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hourly_forecast_view"/>
-
-            <HorizontalScrollView
-                android:id="@+id/weekly_forecast_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/weekly_forecast"
-                app:layout_constraintLeft_toLeftOf="parent">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/weekly_forecast_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-            </HorizontalScrollView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+        android:name="com.example.android1.DetailedInfoFragment"/>
 
     <Button
         android:id="@+id/btn_add_city"
