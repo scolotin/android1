@@ -10,10 +10,10 @@
     <dimen name="icons_margin">10dp</dimen>
     <dimen name="label_margin_top">10dp</dimen>
     <dimen name="screen_margin">10dp</dimen>
-    <dimen name="hint_font_size">23sp</dimen>
+    <dimen name="hint_font_size">21sp</dimen>
     <dimen name="checkbox_margin">5dp</dimen>
     <dimen name="cities_list_margin">10dp</dimen>
-    <dimen name="popular_cities_font_size">18sp</dimen>
+    <dimen name="cities_font_size">18sp</dimen>
     <dimen name="settings_font_size">17sp</dimen>
     <dimen name="column_margin">2dp</dimen>
     <dimen name="column_size">40dp</dimen>

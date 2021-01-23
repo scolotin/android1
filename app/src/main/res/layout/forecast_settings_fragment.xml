@@ -6,37 +6,34 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/popular_cities_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/popular_cities"
-        android:textSize="@dimen/label_font_size"/>
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popular_cities_label"
-        app:layout_constraintBottom_toTopOf="@+id/btn_apply"
-        android:fillViewport="true">
+        app:layout_constraintRight_toRightOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="@dimen/screen_margin"
-            android:layout_marginEnd="@dimen/screen_margin">
+            android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cities_list"
+            <CheckBox
+                android:id="@+id/wind_speed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:layout_marginTop="@dimen/checkbox_margin"
+                android:layout_marginBottom="@dimen/checkbox_margin"
+                android:text="@string/add_wind_speed_info"/>
+
+            <CheckBox
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_humidity_info"
+                android:layout_marginTop="@dimen/checkbox_margin"
+                android:layout_marginBottom="@dimen/checkbox_margin"/>
 
         </LinearLayout>
 

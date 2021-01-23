@@ -5,21 +5,18 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/screen_margin"
     android:orientation="horizontal"
-    tools:context=".MainActivity"
     tools:ignore="DisableBaselineAlignment">
 
-    <fragment
-        android:id="@+id/cities"
+    <FrameLayout
+        android:id="@+id/main_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:name="com.example.android1.CitiesFragment"/>
+        android:layout_weight="1"/>
 
-    <fragment
-        android:id="@+id/detailed_info"
+    <FrameLayout
+        android:id="@+id/right_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:name="com.example.android1.DetailedInfoFragment"/>
+        android:layout_weight="1"/>
 
 </LinearLayout>

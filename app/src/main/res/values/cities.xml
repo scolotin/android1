@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+        <item>@string/city_0</item>
+        <item>@string/city_1</item>
+        <item>@string/city_2</item>
+        <item>@string/city_3</item>
+        <item>@string/city_4</item>
+    </string-array>
+</resources>

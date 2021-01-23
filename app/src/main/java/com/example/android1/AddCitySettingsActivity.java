@@ -31,25 +31,6 @@ public class AddCitySettingsActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        findViews();
-        outState.putBoolean("windSpeed", windSpeed.isChecked());
-        outState.putBoolean("humidity", humidity.isChecked());
-    }
-
-    @SuppressLint("DefaultLocale")
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        findViews();
-        windSpeed.setChecked(savedInstanceState.getBoolean("windSpeed"));
-        humidity.setChecked(savedInstanceState.getBoolean("humidity"));
-    }
-
     private void findViews() {
         windSpeed = findViewById(R.id.wind_speed);
         humidity = findViewById(R.id.humidity);
