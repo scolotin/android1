@@ -104,7 +104,17 @@
 
     </ScrollView>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/btn_add_city"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="@dimen/bt_add_city_margin_end"-->
+<!--        android:layout_marginBottom="@dimen/bt_add_city_margin_bottom"-->
+<!--        android:text="@string/add_city"-->
+<!--        android:textSize="@dimen/symbol_font_size"-->
+<!--        android:layout_gravity="bottom|end"/>-->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
