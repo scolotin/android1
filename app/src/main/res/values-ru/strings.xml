@@ -22,4 +22,5 @@
     <string name="settings">Настройки</string>
     <string name="add_city_settings">Настройки</string>
     <string name="about">Инфо</string>
+    <string name="request_to_apply">Применить настройки?</string>
 </resources>

@@ -72,7 +72,7 @@ public class CitiesFragment extends Fragment {
             else {
                 args.putString("cityName", requestedCityName);
                 DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                backToFragment(detailedInfoFragment, R.id.main_container);
+                backToFragment(detailedInfoFragment);
             }
         });
 
@@ -82,7 +82,7 @@ public class CitiesFragment extends Fragment {
                 updateRequestedCityName();
                 args.putString("cityName", requestedCityName);
                 DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                backToFragment(detailedInfoFragment, R.id.main_container);
+                backToFragment(detailedInfoFragment);
             });
         }
     }
@@ -122,7 +122,7 @@ public class CitiesFragment extends Fragment {
                 public boolean onQueryTextSubmit(String query) {
                     args.putString("cityName", query);
                     DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                    backToFragment(detailedInfoFragment, R.id.main_container);
+                    backToFragment(detailedInfoFragment);
                     return false;
                 }
 
@@ -138,7 +138,7 @@ public class CitiesFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.add_city_settings) {
             ForecastSettingsFragment forecastSettingsFragment = new ForecastSettingsFragment();
-            backToFragment(forecastSettingsFragment, R.id.main_container);
+            backToFragment(forecastSettingsFragment);
             return true;
         }
 
@@ -150,10 +150,10 @@ public class CitiesFragment extends Fragment {
         btnApply.setVisibility(View.GONE);
     }
 
-    private void backToFragment(Fragment fragment, int containerViewId) {
+    private void backToFragment(Fragment fragment) {
         fragment.setArguments(args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(containerViewId, fragment);
+        transaction.replace(R.id.main_container, fragment);
         transaction.commit();
     }
 }

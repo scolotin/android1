@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
@@ -13,21 +12,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class ForecastSettingsFragment extends Fragment {
+    boolean isLandscapeOrientation;
     private CheckBox windSpeed, humidity;
     private Bundle args;
+    private Snackbar snackbar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        isLandscapeOrientation = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         return inflater.inflate(R.layout.forecast_settings_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        boolean isLandscapeOrientation = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         findViews(view);
 
@@ -36,21 +38,28 @@ public class ForecastSettingsFragment extends Fragment {
             setForecastSettings();
         }
 
-        Button btnApply = view.findViewById(R.id.btn_apply);
-        if (btnApply != null) {
-            btnApply.setOnClickListener(v -> {
-                getForecastSettings();
+        createSnackbar(view);
+        windSpeed.setOnClickListener(v -> snackbar.show());
 
-                Fragment fragment;
-                if (isLandscapeOrientation) {
-                    fragment = new DetailedInfoFragment();
-                }
-                else {
-                    fragment = new CitiesFragment();
-                }
-                backToFragment(fragment, R.id.main_container);
-            });
+        humidity.setOnClickListener(v -> snackbar.show());
+    }
+
+    private void snackbarAction() {
+        getForecastSettings();
+
+        Fragment fragment;
+        if (isLandscapeOrientation) {
+            fragment = new DetailedInfoFragment();
         }
+        else {
+            fragment = new CitiesFragment();
+        }
+        backToFragment(fragment, R.id.main_container);
+    }
+
+    private void createSnackbar(View view) {
+        snackbar = Snackbar.make(view, R.string.request_to_apply, Snackbar.LENGTH_LONG)
+                            .setAction(R.string.btn_apply, v -> snackbarAction());
     }
 
     private void backToFragment(Fragment fragment, int containerViewId) {
