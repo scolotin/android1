@@ -154,6 +154,7 @@ public class CitiesFragment extends Fragment {
         fragment.setArguments(args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.main_container, fragment);
+        transaction.addToBackStack("");
         transaction.commit();
     }
 }

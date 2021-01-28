@@ -66,6 +66,7 @@ public class ForecastSettingsFragment extends Fragment {
         fragment.setArguments(args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(containerViewId, fragment);
+        transaction.addToBackStack("");
         transaction.commit();
     }
 

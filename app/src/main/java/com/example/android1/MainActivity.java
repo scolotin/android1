@@ -41,4 +41,13 @@ public class MainActivity extends AppCompatActivity {
         updateDetailedInfoTransaction.add(R.id.main_container, detailedInfoFragment);
         updateDetailedInfoTransaction.commit();
     }
+
+    @Override
+    public void onBackPressed() {
+        if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

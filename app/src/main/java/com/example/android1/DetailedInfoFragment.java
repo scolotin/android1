@@ -46,8 +46,8 @@ public class DetailedInfoFragment extends Fragment {
     private boolean isWindSpeedEnabled, isHumidityEnabled;
     private boolean isNeedUpdateWindSpeed = false, isNeedUpdateHumidity = false;
 
-    private static final String FORMAT_COORD_REQUEST = "http://api.openweathermap.org/geo/1.0/direct?q=%s&limit=3&appid=%s";
-    private static final String FORMAT_WEATHER_REQUEST = "http://api.openweathermap.org/data/2.5/onecall?lat=%.2f&lon=%.2f&units=metric&exclude=minutely,alerts&appid=%s";
+    private static final String FORMAT_COORD_REQUEST = "https://api.openweathermap.org/geo/1.0/direct?q=%s&limit=3&appid=%s";
+    private static final String FORMAT_WEATHER_REQUEST = "https://api.openweathermap.org/data/2.5/onecall?lat=%.2f&lon=%.2f&units=metric&exclude=minutely,alerts&appid=%s";
 
     @Nullable
     @Override
@@ -98,8 +98,6 @@ public class DetailedInfoFragment extends Fragment {
                             urlConnection.setReadTimeout(10000);
                             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                             String result = getLines(in);
-
-                            city.setText(cityName);
                             Gson gson = new Gson();
                             final CoordRequest[] coordRequest = gson.fromJson(result, CoordRequest[].class);
                             urlConnection.disconnect();
@@ -113,7 +111,10 @@ public class DetailedInfoFragment extends Fragment {
                             in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                             result = getLines(in);
                             final WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
-                            handler.post(() -> displayWeather(weatherRequest));
+                            handler.post(() -> {
+                                city.setText(cityName);
+                                displayWeather(weatherRequest);
+                            });
                         } catch (Exception e) {
                             e.printStackTrace();
                         } finally {
@@ -138,6 +139,7 @@ public class DetailedInfoFragment extends Fragment {
                 citiesFragment.setArguments(citiesArgs);
                 FragmentTransaction citiesTransaction = getFragmentManager().beginTransaction();
                 citiesTransaction.replace(R.id.main_container, citiesFragment);
+                citiesTransaction.addToBackStack("");
                 citiesTransaction.commit();
             });
         }
@@ -351,4 +353,13 @@ public class DetailedInfoFragment extends Fragment {
         weeklyForecasts.add(new Forecast(R.drawable.temperature, getWeeklyTemperature(weatherRequest)));
         weeklyForecasts.add(new Forecast(R.drawable.precipitation, getWeeklyPrecipitation(weatherRequest)));
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+//            getSupportFragmentManager().popBackStack();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
 }
