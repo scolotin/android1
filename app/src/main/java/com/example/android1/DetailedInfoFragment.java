@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android1.Models.CoordRequest;
 import com.example.android1.Models.WeatherRequest;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -101,6 +102,9 @@ public class DetailedInfoFragment extends Fragment {
                             Gson gson = new Gson();
                             final CoordRequest[] coordRequest = gson.fromJson(result, CoordRequest[].class);
                             urlConnection.disconnect();
+                            if (coordRequest.length == 0) {
+                                throw new Exception(getString(R.string.unknown_city_name) + cityName);
+                            }
 
                             @SuppressLint("DefaultLocale")
                             String weatherQueryString = String.format(FORMAT_WEATHER_REQUEST, coordRequest[0].getLat(), coordRequest[0].getLon(), OWM_KEY);
@@ -111,12 +115,17 @@ public class DetailedInfoFragment extends Fragment {
                             in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                             result = getLines(in);
                             final WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
+                            if (weatherRequest == null) {
+                                throw new Exception("Please check your internet connection");
+                            }
                             handler.post(() -> {
                                 city.setText(cityName);
                                 displayWeather(weatherRequest);
                             });
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            handler.post(() -> {
+                                Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG).show();
+                            });
                         } finally {
                             if (urlConnection != null) {
                                 urlConnection.disconnect();

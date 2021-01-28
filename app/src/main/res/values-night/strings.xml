@@ -23,4 +23,5 @@
     <string name="add_city_settings">Settings</string>
     <string name="about">About</string>
     <string name="request_to_apply">Apply settings?</string>
+    <string name="unknown_city_name">Unknown city name - </string>
 </resources>
