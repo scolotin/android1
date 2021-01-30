@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <CheckBox
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/wind_speed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:layout_marginBottom="@dimen/checkbox_margin"
                 android:text="@string/add_wind_speed_info"/>
 
-            <CheckBox
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/humidity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

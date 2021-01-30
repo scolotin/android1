@@ -28,6 +28,15 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">?attr/colorSecondary</item>-->
         <item name="colorSurface">?attr/colorOnPrimary</item>
+        <item name="checkboxStyle">@style/Widget.AppCompat.CheckBox</item>
+    </style>
+
+    <style name="Widget.AppCompat.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppCompat.Checkbox</item>
+    </style>
+    
+    <style name="ThemeOverlay.AppCompat.Checkbox">
+        <item name="colorSecondary">@color/secondaryDarkColor</item>
     </style>
 
 </resources>
