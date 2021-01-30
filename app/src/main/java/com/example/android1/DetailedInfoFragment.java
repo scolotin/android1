@@ -31,7 +31,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import static com.example.android1.BuildConfig.OWM_KEY;
@@ -103,7 +105,7 @@ public class DetailedInfoFragment extends Fragment {
                             final CoordRequest[] coordRequest = gson.fromJson(result, CoordRequest[].class);
                             urlConnection.disconnect();
                             if (coordRequest.length == 0) {
-                                throw new Exception(getString(R.string.unknown_city_name) + cityName);
+                                throw new Exception(String.format("%s - %s", getString(R.string.unknown_city_name), cityName));
                             }
 
                             @SuppressLint("DefaultLocale")
@@ -115,12 +117,13 @@ public class DetailedInfoFragment extends Fragment {
                             in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                             result = getLines(in);
                             final WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
-                            if (weatherRequest == null) {
-                                throw new Exception("Please check your internet connection");
-                            }
                             handler.post(() -> {
                                 city.setText(cityName);
                                 displayWeather(weatherRequest);
+                            });
+                        } catch (SocketTimeoutException | UnknownHostException e) {
+                            handler.post(() -> {
+                                Snackbar.make(view, getString(R.string.connection_lost_msg), Snackbar.LENGTH_LONG).show();
                             });
                         } catch (Exception e) {
                             handler.post(() -> {

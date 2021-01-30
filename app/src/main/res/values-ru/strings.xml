@@ -23,5 +23,6 @@
     <string name="add_city_settings">Настройки</string>
     <string name="about">Инфо</string>
     <string name="request_to_apply">Применить настройки?</string>
-    <string name="unknown_city_name">Неизвестный миру город - </string>
+    <string name="unknown_city_name">Неизвестный миру город</string>
+    <string name="connection_lost_msg">Отсутствует подключение к интернету</string>
 </resources>
