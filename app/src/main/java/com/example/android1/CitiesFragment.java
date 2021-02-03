@@ -8,8 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,16 +20,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CitiesFragment extends Fragment {
-    private boolean isLandscapeOrientation;
     private String requestedCityName;
-    private SearchView searchView;
     private boolean isWindSpeedEnabled, isHumidityEnabled;
     private Bundle args;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        isLandscapeOrientation = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         if (savedInstanceState == null) {
             setHasOptionsMenu(true);
         }
@@ -41,10 +36,6 @@ public class CitiesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        if (isLandscapeOrientation) {
-            hideButton();
-        }
 
         args = getArguments();
         if (args != null) {
@@ -66,37 +57,10 @@ public class CitiesFragment extends Fragment {
 
         citiesListAdapter.setItemClickListener((v, position) -> {
             requestedCityName = ((TextView) v).getText().toString();
-            if (!isLandscapeOrientation) {
-                setToSearchView(requestedCityName);
-            }
-            else {
-                args.putString("cityName", requestedCityName);
-                DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                backToFragment(detailedInfoFragment);
-            }
+            args.putString("cityName", requestedCityName);
+            DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
+            backToFragment(detailedInfoFragment);
         });
-
-        Button btnApply = view.findViewById(R.id.btn_apply);
-        if (btnApply != null && !isLandscapeOrientation) {
-            btnApply.setOnClickListener(v -> {
-                updateRequestedCityName();
-                args.putString("cityName", requestedCityName);
-                DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                backToFragment(detailedInfoFragment);
-            });
-        }
-    }
-
-    private void setToSearchView(String text) {
-        searchView.setIconified(false);
-        searchView.setQuery(text, true);
-        searchView.clearFocus();
-    }
-
-    private void updateRequestedCityName() {
-        if (!searchView.getQuery().toString().isEmpty()) {
-            requestedCityName = searchView.getQuery().toString();
-        }
     }
 
     private void putForecastSettings() {
@@ -113,41 +77,32 @@ public class CitiesFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.add_city_menu, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.search);
-        searchView = searchItem.getActionView().findViewById(R.id.search);
-        if (isLandscapeOrientation) {
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    args.putString("cityName", query);
-                    DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
-                    backToFragment(detailedInfoFragment);
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    return false;
-                }
-            });
-        }
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.add_city_settings) {
-            ForecastSettingsFragment forecastSettingsFragment = new ForecastSettingsFragment();
-            backToFragment(forecastSettingsFragment);
-            return true;
-        }
+        switch (item.getItemId()) {
+            case (R.id.add_city_settings):
+                ForecastSettingsFragment forecastSettingsFragment = new ForecastSettingsFragment();
+                backToFragment(forecastSettingsFragment);
+                return true;
 
-        return super.onOptionsItemSelected(item);
+            case (R.id.search):
+                CitiesDialogBuilderFragment citiesDBF = new CitiesDialogBuilderFragment();
+                citiesDBF.show(getChildFragmentManager(), null);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    private void hideButton() {
-        Button btnApply = getView().findViewById(R.id.btn_apply);
-        btnApply.setVisibility(View.GONE);
+    public void onDialogResult(String resultDialog) {
+        requestedCityName = resultDialog;
+
+        args.putString("cityName", requestedCityName);
+        DetailedInfoFragment detailedInfoFragment = new DetailedInfoFragment();
+        backToFragment(detailedInfoFragment);
     }
 
     private void backToFragment(Fragment fragment) {

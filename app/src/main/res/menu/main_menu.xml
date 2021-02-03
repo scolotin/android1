@@ -7,6 +7,7 @@
         android:id="@+id/about_city"
         android:title="@string/about"
         android:icon="@drawable/about"
+        android:orderInCategory="3"
         app:showAsAction="ifRoom"/>
 
 </menu>
