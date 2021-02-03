@@ -45,6 +45,9 @@ public class ForecastSettingsFragment extends Fragment {
     }
 
     private void snackbarAction() {
+        if (args == null) {
+            args = new Bundle();
+        }
         getForecastSettings();
 
         Fragment fragment;

@@ -25,6 +25,9 @@
     <string name="request_to_apply">Применить настройки?</string>
     <string name="unknown_city_name">Неизвестный миру город</string>
     <string name="connection_lost_msg">Отсутствует подключение к интернету</string>
+    <string name="enter_city_name">Введите название города</string>
     <string name="about_app">О приложении</string>
-    <string name="enter_city_name">В</string>
+    <string name="navigation_drawer_open">Открыть</string>
+    <string name="navigation_drawer_close">Закрыть</string>
+    <string name="about_text">WeatherApp v.0.0.0</string>
 </resources>

@@ -27,4 +27,7 @@
     <string name="connection_lost_msg">Please check your internet connection</string>
     <string name="enter_city_name">Enter city name</string>
     <string name="about_app">About application</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="about_text">WeatherApp v.0.0.0</string>
 </resources>

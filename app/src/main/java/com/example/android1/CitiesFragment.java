@@ -1,6 +1,5 @@
 package com.example.android1;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -82,11 +81,6 @@ public class CitiesFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case (R.id.add_city_settings):
-                ForecastSettingsFragment forecastSettingsFragment = new ForecastSettingsFragment();
-                backToFragment(forecastSettingsFragment);
-                return true;
-
             case (R.id.search):
                 CitiesDialogBuilderFragment citiesDBF = new CitiesDialogBuilderFragment();
                 citiesDBF.show(getChildFragmentManager(), null);
