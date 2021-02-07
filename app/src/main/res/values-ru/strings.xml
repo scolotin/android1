@@ -29,5 +29,5 @@
     <string name="about_app">О приложении</string>
     <string name="navigation_drawer_open">Открыть</string>
     <string name="navigation_drawer_close">Закрыть</string>
-    <string name="about_text">WeatherApp v.0.0.0</string>
+    <string name="about_text">WeatherApp</string>
 </resources>

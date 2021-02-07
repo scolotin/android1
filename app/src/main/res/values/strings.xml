@@ -29,5 +29,5 @@
     <string name="about_app">About application</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
-    <string name="about_text">WeatherApp v.0.0.0</string>
+    <string name="about_text">WeatherApp</string>
 </resources>
